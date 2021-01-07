@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-about',
@@ -15,6 +16,12 @@ export class AboutComponent implements OnInit {
 
   picIndex = 0;
 
+  course = [
+    {name: 'PHP', price: 200},
+    {name: 'ANGULAR', price: 600},
+    {name: 'REACT', price: 700},
+    {name: 'VUE.JS', price: 500},
+  ];
   picture = [
     './assets/images/journey/1.jpg',
     './assets/images/journey/2.jpg',
@@ -37,17 +44,23 @@ export class AboutComponent implements OnInit {
 imgWidth = 500;
 isShow = false;
 
-  constructor() {
-    this.age = 32;
-    this.info = {
-      email: 'frank@gmail.com',
-      skill: 'Tongue'
-    };
+indexColor = 0;
+currentColor = 'red'
+colors =['yellow', 'blue' , 'pink']
+isActive = false
 
-   }
+constructor(private tb: Title) {
+  this.age = 32;
+  this.info = {
+    email: 'frank@gmail.com',
+    skill: 'Tongue'
+  };
+
+  }
 
   ngOnInit() {
-    this.name = 'Christy Kee';
+    this.name = 'Frank Kee';
+    this.tb.setTitle('About F')
   }
 
   next() {
@@ -55,6 +68,17 @@ isShow = false;
       this.picIndex = 0;
     }
     this.profile = this.picture[this.picIndex++];
+  }
+
+  changeClass(){
+    this.isActive = true
+  }
+
+  changeColor(){
+    if (this.indexColor >= this.colors.length) {
+      this.indexColor = 0;
+    }
+    this.currentColor = this.colors[this.indexColor++];
   }
 
 }
