@@ -35,6 +35,7 @@ export class AboutComponent implements OnInit {
     
 ];
 imgWidth = 500;
+isShow = false;
 
   constructor() {
     this.age = 32;
