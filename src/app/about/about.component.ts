@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+
+import { Subscription } from 'rxjs'
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
-export class AboutComponent implements OnInit {
-
+export class AboutComponent implements OnInit , OnDestroy{
+  private subs: Subscription
   title: string = 'About';
   name: string;
-  info: Object ;
+  info: any;
   age: number;
   profile = './assets/images/journey/0.jpg';
 
@@ -39,7 +41,7 @@ export class AboutComponent implements OnInit {
     './assets/images/journey/15.jpg',
     './assets/images/journey/16.jpg',
     './assets/images/journey/17.jpg'
-    
+
 ];
 imgWidth = 500;
 isShow = false;
@@ -57,7 +59,9 @@ constructor(private tb: Title) {
   };
 
   }
-
+  ngOnDestroy(){
+    
+  }
   ngOnInit() {
     this.name = 'Frank Kee';
     this.tb.setTitle('About F')
