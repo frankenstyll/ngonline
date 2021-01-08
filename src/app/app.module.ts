@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // สำหรับเขียน form
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +12,9 @@ import { AboutComponent } from './about/about.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { NewsComponent } from './news/news.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { EngtoThaiPipe } from './shared/engto-thai.pipe';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +24,17 @@ import { NewsComponent } from './news/news.component';
     AboutComponent,
     ProductsComponent,
     ProductDetailComponent,
-    NewsComponent
+    NewsComponent,
+    PagenotfoundComponent,
+    EngtoThaiPipe,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
