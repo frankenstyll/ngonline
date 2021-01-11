@@ -26,7 +26,7 @@
 	-{{expression}} เอาไว้ดึงค่า property จาก ts  , ts -> html
 	-[property] เอาไว้ set property ของ html , ts -> html
 	-(event) เป็น event ของ html เช่น event click, html -> ts
-	-[(ngModel)] เป็น two way binding , html <-> ts
+	-[(ngModel)] เป็น two way binding , html <-> ts ใช้กรณีที่เป็นหน้า 
 	
 รูปภาพ หรือไฟล์ static ต่างๆเช่น json file , icon ให้เก็บไว้ที่ folder assets
 
@@ -98,14 +98,49 @@ forms จะมีอยู่ 2 แบบคือ  FormsModule เป็น fo
 	-<select class="form-control" id="exampleFormControlSelect1" 
 		ngModel name="province"> อยากผูกข้อมูลต้องเพิ่ม ngModel name="ชื่อที่ต้องการ" สามารถใส่ชื่อ name ได้เลยโดยที่ไม่ต้องกำหนดไว้ที่ typescript
 		
+jwt json web token
+	-เมื่อส่ง user, pass ไป authen ที่ server ตัว server จะส่ง token กลับมาให้ client และจำเก็บไว้คล้ายๆ session หรือ cookies
+		-ตัว client จะเก็บไว้ที่ localStorage.setItem('mycat','xxx'); 
+		-let cat = localStorage.getItem('myCat'); ดึงค่า
+		-localStorage.removeItem('myCat'); ลบค่า
+		-localStorage.clear(); เคลียร์ค่า
 	
+	สร้าง user เพื่อติดต่อ api jwt : https://auth0.com/
+	user: nontapap.th@gmail.com
+	pass: Newkumpon@21
 	
+	สร้าง application
+		-Allowed Web Origins : http://localhost:4200
+		-Allowed Origins (CORS) : http://localhost:4200
+		-เลือก show advance
+			-grant type -> เลือก password -> save
+		
+	database ชื่อ Username-Password-Authentication
 	
+	ไปที่ account -> setting วางชื่อ database ไว้ที่ default directory : Username-Password-Authentication กด save 
 	
+	เท่านี้ก็น่าจะใช้เบื้องต้นได้แล้ว
 	
+	domain จะอยู่ที่
+		application -> NgOnline -> setting -> domain
+		 
 	
+rxjs จะมี operators การทำงานที่เกี่ยวข้องกับ backend หลายๆอย่าง	
+	import { HttpClient, HttpErrorResponse } from '@angular/common/http'; // HttpErrorResponse เอาไว้รับ error
+	import { Injectable } from '@angular/core';
+	import { Observable, throwError } from 'rxjs'; // throwError เอาไว้ throw error
+	import { catchError, retry } from 'rxjs/operators'; // ดักจับตัว error , retry เมื่อเรียกครั้งแรกไม่ได้,
 	
+	return this.http.post<any>(this.loginUrl, body, { headers: this.HEADER_JSON })
+      .pipe(
+			// วิธีใช้ operators ของ rxjs
+			retry(1), // retry ก่นอ 1 รอบ
+			catchError(this.handleError) // ถ้าเกิด error ให้โยนออกไป
+      );
 	
+Sanitization and security contexts
+	คือการตรวจสอบค่าที่ไม่น่าเชื่อถือต่างๆก่อนจะเพิ่มเข้าไปใน dom
+ 	
 	
 	
 	

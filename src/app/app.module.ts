@@ -15,6 +15,8 @@ import { NewsComponent } from './news/news.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { EngtoThaiPipe } from './shared/engto-thai.pipe';
 import { RegisterComponent } from './register/register.component';
+import { RegisterReactiveComponent } from './register-reactive/register-reactive.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { RegisterComponent } from './register/register.component';
     NewsComponent,
     PagenotfoundComponent,
     EngtoThaiPipe,
-    RegisterComponent
+    RegisterComponent,
+    RegisterReactiveComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

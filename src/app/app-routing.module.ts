@@ -7,6 +7,8 @@ import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { ProductsComponent } from './products/products.component';
 import { RegisterComponent } from './register/register.component';
+import { RegisterReactiveComponent } from './register-reactive/register-reactive.component';
+import { AuthGuard } from './shared/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -16,8 +18,9 @@ const routes: Routes = [
   { path: 'product/:id/:title', component: ProductDetailComponent },
   { path: 'news', component: NewsComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'registerv2', component: RegisterReactiveComponent},
 
-  { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
+  { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' , canActivate: [AuthGuard]  },
 
   { path: '**', component: PagenotfoundComponent }
 ];
