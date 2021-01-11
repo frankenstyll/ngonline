@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs'
 })
 export class ProductsComponent implements OnInit, OnDestroy {
 
-  private products: Product[];
+  products: Product[];
   private sub: Subscription;
 
   constructor(
@@ -28,7 +28,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
     this.reloadProduct();
   }
 
-  private reloadProduct(){
+  reloadProduct() {
     this.sub = this.productService.getProducts().subscribe(
 
       (productsData) => { //productsData คือ object ที่รับข้อมูลมา

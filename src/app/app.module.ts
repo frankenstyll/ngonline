@@ -17,6 +17,7 @@ import { EngtoThaiPipe } from './shared/engto-thai.pipe';
 import { RegisterComponent } from './register/register.component';
 import { RegisterReactiveComponent } from './register-reactive/register-reactive.component';
 import { LoginComponent } from './login/login.component';
+import { SecureComponent } from './secure/secure.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LoginComponent } from './login/login.component';
     EngtoThaiPipe,
     RegisterComponent,
     RegisterReactiveComponent,
-    LoginComponent
+    LoginComponent,
+    SecureComponent
   ],
   imports: [
     BrowserModule,
