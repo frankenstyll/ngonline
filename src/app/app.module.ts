@@ -18,6 +18,7 @@ import { RegisterComponent } from './register/register.component';
 import { RegisterReactiveComponent } from './register-reactive/register-reactive.component';
 import { LoginComponent } from './login/login.component';
 import { SecureComponent } from './secure/secure.component';
+import { CeoTableComponent } from './ceo-table/ceo-table.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { SecureComponent } from './secure/secure.component';
     RegisterComponent,
     RegisterReactiveComponent,
     LoginComponent,
-    SecureComponent
+    SecureComponent,
+    CeoTableComponent
   ],
   imports: [
     BrowserModule,
